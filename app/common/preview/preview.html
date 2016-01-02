@@ -1,0 +1,20 @@
+<div class="preview">
+  <div ng-if="!vm.disabled">
+  	<div ng-if="!vm.notFound">
+	  <h1 contenteditable="true" class="preview-title" 
+	  	ng-paste="vm.cleanPaste($event)"
+	  	ng-blur="vm.titleBlur($event, vm.id)">
+	  	{{ vm.note.metadata.title }}
+	  </h1> 
+	  <div contenteditable="true" class="preview-html" 
+	  	ng-focus="vm.contentFocus()"
+	  	ng-blur="vm.contentBlur($event, vm.id)"
+	  	ng-bind-html="(vm.preview === true) ? vm.previewContent: vm.rawContent"
+	  	ng-paste="vm.cleanPaste($event)">
+	  </div>
+	</div>
+	<div ng-if="vm.notFound">
+		<h3>Not found</h3>
+	</div>
+  </div>
+</div>

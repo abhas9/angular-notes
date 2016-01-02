@@ -1,16 +1,26 @@
 @import '../common'
 
-.navbar
-  height 6.5rem
-  background-color $primaryColor
-  padding 1rem
-  .nav-links
-  .logo
-    display inline-block
-  .logo
-    color $lightTextColor
-    margin-right 50% 
-  .nav-links
-    span
-      color $lightTextColor
-      font-size 1.6rem
+.navbar-wrp
+  position: fixed
+  width: 20%
+  height: 100%
+  overflow: auto
+  min-width: 200px
+  border-right: 1px solid #ccc
+  padding: 1%
+
+.nav-table 
+  width: 100%
+
+.nav-item
+  cursor: pointer
+
+@media screen and (max-width: 1000px)
+  .navbar-wrp
+    position: relative
+    width: 100%
+    height: auto
+    overflow: auto
+    border-right: none
+    border-bottom: 1px solid #ccc
+    padding: 1%
