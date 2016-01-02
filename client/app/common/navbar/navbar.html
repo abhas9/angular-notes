@@ -1,8 +1,14 @@
+<div class="navbar-wrp">
 <nav class="navbar">
-  <div class="logo">
-    <h1><a ui-sref="home">{{ vm.name }}</a></h1>
-  </div>
-  <div class="nav-links">
-    <span><a ui-sref="about">about</a></span>
-  </div>
+<table class="nav-table">
+  <tr ng-repeat="notes in vm.notesList">
+  	<td>
+	  	<a ui-sref="home({id: notes.id })">
+	  		<div class="nav-item" contenteditable="true" ng-blur="vm.update($event, notes.id)">{{notes.title}}</div>
+	  	</a>
+  	</td>
+  </tr>
+</table>
 </nav>
+<button ng-click="vm.addNote()">Add Note</button>
+</div>
