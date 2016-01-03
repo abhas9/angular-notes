@@ -1,6 +1,6 @@
 # Angular Notes
 
-Angular JS (es6) App to maintain notes.
+Angular JS (es6) App to maintain notes. Demo: http://abhas9.github.io/angular-notes/
 
 ## Dependencies
 
