@@ -2,10 +2,11 @@
 <nav class="navbar">
 <table class="nav-table">
   <tr ng-repeat="notes in vm.notesList">
-  	<td>
+  	<td class="nav-cell">
 	  	<a ui-sref="home({id: notes.id })">
 	  		<div class="nav-item" contenteditable="true" ng-blur="vm.update($event, notes.id)">{{notes.title}}</div>
 	  	</a>
+	  	<button ng-click="vm.deleteNote($event, notes.id)" class="delete-button">X</button>
   	</td>
   </tr>
 </table>
