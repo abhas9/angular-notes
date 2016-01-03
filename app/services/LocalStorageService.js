@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 class LocalStorageService {
-    constructor() {
+    constructor(a) {
         this.notesList = this.getNotesList();
     }
     getNotesList() {
@@ -92,6 +92,17 @@ class LocalStorageService {
             created: (new Date()).getTime()
         });
         window.localStorage.setItem('ngNotesList', angular.toJson(this.notesList));
+    }
+    deleteNoteById(id) {
+        let noteMetadataIndex = this.notesList.map(notes => notes.id).indexOf(id);
+        let notesData = this.notesData.filter(note => note.id !== id);
+        if (noteMetadataIndex >= 0) {
+            this.notesList.splice(1,noteMetadataIndex);
+            window.localStorage.setItem('ngNotesList', angular.toJson(this.notesList));
+            window.localStorage.setItem('ngNotesData', angular.toJson(notesData));
+        } else {
+            throw new Error('Invalid store state');
+        }
     }
 }
 
