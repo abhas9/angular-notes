@@ -1,19 +1,23 @@
 import LocalStorageService from '../../services/LocalStorageService';
 
 class NavbarController {
-  constructor($stateParams) {
-  	console.log($stateParams);
+  constructor($state) {
   	this.notesList = LocalStorageService.notesList;
+    this.$state = $state;
     this.name = 'navbar';
   }
   addNote() {
   	LocalStorageService.addNewNote();
   }
   update($event, id) {
-  	LocalStorageService.updateNotesTitleById(id, $event.currentTarget.innerText)
+  	LocalStorageService.updateNotesTitleById(id, $event.currentTarget.innerText);
+  }
+  deleteNote($event, id) {
+    LocalStorageService.deleteNoteById(id);
+    this.$state.go('home', {id: ''});
   }
 }
 
-NavbarController.$inject = ['$stateParams'];
+NavbarController.$inject = ['$state'];
 
 export default NavbarController;
